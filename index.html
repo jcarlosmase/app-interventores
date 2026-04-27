@@ -291,7 +291,7 @@
 		}else
 			document.getElementById("app").innerHTML = "No hay nadie con ese Nombre o DNI";
 	}
-	setCookie("sesion", "1", 1);
+	//setCookie("sesion", "1", 1);
   }
 
   function actualizar(dni, activo) {
@@ -331,24 +331,26 @@
 		}, 2000)
 	}
   }
-function setCookie(nombre, valor, minutos) {
-  let fecha = new Date();
-  fecha.setTime(fecha.getTime() + (minutos * 60 * 60 * 1000));
-  let expires = "expires=" + fecha.toUTCString();
-  document.cookie = nombre + "=" + encodeURIComponent(valor) + ";" + expires + ";path=/";
-}
-function getCookie(nombre) {
-  let nombreEQ = nombre + "=";
-  let cookies = document.cookie.split(';');
-
-  for (let i = 0; i < cookies.length; i++) {
-    let c = cookies[i].trim();
-    if (c.indexOf(nombreEQ) === 0) {
-      return decodeURIComponent(c.substring(nombreEQ.length, c.length));
-    }
+  
+  function setCookie(nombre, valor, minutos) {
+    let fecha = new Date();
+    fecha.setTime(fecha.getTime() + (minutos * 60 * 60 * 1000));
+    let expires = "expires=" + fecha.toUTCString();
+    document.cookie = nombre + "=" + encodeURIComponent(valor) + ";" + expires + ";path=/";
   }
-  return null;
-}
+  
+  function getCookie(nombre) {
+    let nombreEQ = nombre + "=";
+    let cookies = document.cookie.split(';');
+
+    for (let i = 0; i < cookies.length; i++) {
+      let c = cookies[i].trim();
+      if (c.indexOf(nombreEQ) === 0) {
+        return decodeURIComponent(c.substring(nombreEQ.length, c.length));
+      }
+    }
+    return null;
+  }
 /*
 function setLS(clave, valor, minutos) {
   const ahora = new Date();
