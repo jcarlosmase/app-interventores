@@ -291,7 +291,7 @@
 		}else
 			document.getElementById("app").innerHTML = "No hay nadie con ese Nombre o DNI";
 	}
-	//setCookie("sesion", "1", 1);
+	setCookie("sesion", "1", 1);
   }
 
   function actualizar(dni, activo) {
@@ -386,6 +386,8 @@ function getLS(clave) {
   }else{*/
 	  document.getElementById("app").style.display = "none";
 	  document.getElementById("loginScreen").style.display = "flex";
+  	  document.getElementById("user").value = "";
+	  document.getElementById("pass").value = "";
  //}
 	
   document.getElementById("searchInput").addEventListener("input", () => {
@@ -401,6 +403,8 @@ function getLS(clave) {
     }else{
 	  document.getElementById("app").style.display = "none";
 	  document.getElementById("loginScreen").style.display = "flex";
+	  document.getElementById("user").value = "";
+	  document.getElementById("pass").value = "";
 	}
   }, 10000);
 </script>
