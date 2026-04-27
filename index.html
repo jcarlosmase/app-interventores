@@ -334,7 +334,7 @@
   
   function setCookie(nombre, valor, minutos) {
     let fecha = new Date();
-    fecha.setTime(fecha.getTime() + (minutos * 60 * 60 * 1000));
+    fecha.setTime(fecha.getTime() + (minutos * 60 * 1000));
     let expires = "expires=" + fecha.toUTCString();
     document.cookie = nombre + "=" + encodeURIComponent(valor) + ";" + expires + ";path=/";
   }
