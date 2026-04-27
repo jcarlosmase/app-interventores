@@ -250,16 +250,17 @@
   let pendientes = 0;
 
   async function cargarDatos() {
-    document.getElementById("pendingBadge").style.display = "none";
-    const res = await fetch(API_URL);
-    const data = await res.json();
+  	if(pendientes==0){
+		document.getElementById("pendingBadge").style.display = "none";
+		const res = await fetch(API_URL);
+		const data = await res.json();
 
-    const texto = document.getElementById("searchInput").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    const filtrados = data.filter(p =>
-      p.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(texto) ||
-      p.dni.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(texto)
-    );
-	if(pendientes==0){
+		const texto = document.getElementById("searchInput").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+		const filtrados = data.filter(p =>
+		  p.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(texto) ||
+		  p.dni.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(texto)
+		);
+
 		const container = document.getElementById("app");
 		container.innerHTML = "";
 		
