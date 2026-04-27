@@ -392,7 +392,7 @@ function getLS(clave) {
   });
 
   setInterval(() => {
-	//console.log("Sesion: "+getCookie("sesion"));
+	console.log("Sesion: "+getCookie("sesion"));
     if (getCookie("sesion") === "1") {
 	  document.getElementById("app").style.display = "contents";
       cargarDatos();
