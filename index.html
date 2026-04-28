@@ -231,7 +231,7 @@
   const PASSWORD = "5f91ce14666d1ea42ac6be101ed12112";
 
   function login() {
-    const user = md5(document.getElementById("user").value);
+    const user = md5(document.getElementById("user").value.toLowerCase());
     const pass = md5(document.getElementById("pass").value);
 
     if (user === USERNAME && pass === PASSWORD) {
