@@ -402,10 +402,12 @@ function getLS(clave) {
 	  document.getElementById("app").style.display = "contents";
       cargarDatos();
     }else{
+	  if(document.getElementById("loginScreen").style.display != "flex"){
+	     document.getElementById("user").value = "";
+	     document.getElementById("pass").value = "";
+	  }
 	  document.getElementById("app").style.display = "none";
 	  document.getElementById("loginScreen").style.display = "flex";
-	  document.getElementById("user").value = "";
-	  document.getElementById("pass").value = "";
 	}
   }, 10000);
 </script>
