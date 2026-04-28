@@ -254,11 +254,13 @@
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    const texto = document.getElementById("searchInput").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    const filtrados = data.filter(p =>
-      p.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(texto) ||
-      p.dni.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(texto)
-    );
+    const texto = document.getElementById("searchInput").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(" ");
+	const filtrados = data.filter(p =>
+		texto.every(t =>
+		  p.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(t) ||
+		  p.dni.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(t)
+		)
+	);
 	if(pendientes==0){
 		const container = document.getElementById("app");
 		container.innerHTML = "";
